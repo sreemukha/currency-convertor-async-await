@@ -15,17 +15,17 @@ const getCountries = (currencyCode) => {
   });
 }
 
-const convertCurrency = (base, to, amount) => {
-  let cntrys;
-  return getCountries(to).then((countries) => {
-    cntrys = countries;
-    return getExchangeRate(base,to);
-  }).then((rate) => {
-    const exchange = amount * rate;
-
-    return `${amount} ${base} is worth ${exchange} ${to}. ${to} can be used in the following countries: ${cntrys.join(', ')}`;
-  });
-}
+// const convertCurrency = (base, to, amount) => {
+//   let cntrys;
+//   return getCountries(to).then((countries) => {
+//     cntrys = countries;
+//     return getExchangeRate(base,to);
+//   }).then((rate) => {
+//     const exchange = amount * rate;
+//
+//     return `${amount} ${base} is worth ${exchange} ${to}. ${to} can be used in the following countries: ${cntrys.join(', ')}`;
+//   });
+// }
 
 const convertCurrencyAsync = async (base,to,amount) => {
   const countries = await getCountries(to);
